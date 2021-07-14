@@ -2,7 +2,7 @@
     <nav class="panel">
         <p class="panel-heading">Attendees</p>
         <% User.find(@event.attendances.invite_sent.map {|attended| attended.attendee_id}).each do |attendance| %>
-        <p class="panel-block"><%= attendance.attendees.name %></p>
+        <p class="panel-block"><%= attendance.name %></p>
         <% end %>
     </nav>
 </div>

@@ -5,23 +5,43 @@
                 <div class="box">
                     <h3 class="title is-5 has-text-centered">Possible Invitees</h3>
 
-                    <div class="columns is-centered">
-                        <table class="table is-half is-hoverable has-text-centered">
-                            <tbody>
-                                <th class="has-text-centered">Invitee</th>
-                                <th class="has-text-centered">Send Invitation</th>
-                                <th class="has-text-centered">Invite status</th>
-                                <% event_owner = Event.find(params[:event_id]).creator %>
-                                <% @users.reject { |attendee| attendee == event_owner }.each do |attendee| %>
-                                    <% attendance = Attendance.find_by(event_id: params[:event_id], attendee_id: attendee.id) %>
-                                    <tr>
-                                        <td>
-                                            <%= attendee.name %>
-                                        </td>
-                                    </tr>
+                <div class="columns is-centered">
+                    <table class="table is-half is-hoverable has-text-centered">
+                        <tbody>
+                            <th class="has-text-centered">Invitee</th>
+                            <th class="has-text-centered">Send Invitation</th>
+                            <th class="has-text-centered">Invitation status</th>
+                            <% event_owner = Event.find(params[:event_id]).creator %>
+                            <% @users.reject { |attendee| attendee == event_owner}.each do |attendee| %>
+                                <% attendance = Attendance.find_by(event_id: params[:event_id], attendee_id: attendee.id) %>
+                                <tr>
+                                    <td class="has-text-centered">
+                                        <%= attendee.name %>
+                                    </td>
+                                
+                                <% unless attendance.nil? || attendance.status.nil? %>
+                                <td class="has-text-centered">
+                                    <span class="tag is-primary is-medium is-light"><%= attendance.status %></span>
+                                </td>
+                                <% else %>
+                                    <td></td>
                                 <% end %>
-                </div>      </tbody>
-            </div>      </table>
+                                <% if attendance.nil? %>
+                                    <td class="has-text-centered">
+                                        <%= button_to "send Invite", attendances_path(event_id: params[:event_id], attendee_id: attendee.id), class: "button is-success is-medium" %>
+                                    </td>
+                                <% else %>
+
+                                    <td class="has-text-centered">
+                                        <%= button_to "Cancel invitation", attendance_path(id: attendance.id, event_id: params[:event_id]), method: :delete, class: "button is-warning is-medium" %>
+                                    </td>
+                                <% end %>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </section>            
