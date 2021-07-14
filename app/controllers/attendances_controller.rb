@@ -1,11 +1,11 @@
 class AttendancesController < ApplicationController
 
     def attendance
-        event = Event.find(:event_id)
-        attendance = Attendance.new(event_id: event.id, attendee_id: attendee(params[:attendee_id]))
+        event = Event.find(params[:event_id])
+        attendances = Attendance.new(event_id: event.id, attendee_id: attendee(params[:attendee_id]))
 
-        if attendance.any?
-            attendance.invite!.save
+        if attendances.save
+            attendances.invite_sent!
             flash[:notice] = "Invited successfully"
             redirect_to users_path(event_id: event.id)
         else

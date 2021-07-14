@@ -1,0 +1,13 @@
+
+<div class="column is-4 ">
+<h1 class="title is-4 has-text-centered"><%= (@user.name + "'s" + " Events").upcase %></h1>
+    <article class="media">
+        <div class="media-content">
+            <% @user.own_events.each do |event| %>
+                <p class="content has-text-centered"><%= link_to event.theme, event_path(event) %></p>
+            <% end %>
+
+            <%# link_to "Back", root_path %>
+        </div>
+    </article>
+</div>

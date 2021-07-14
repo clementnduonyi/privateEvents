@@ -1,39 +1,13 @@
 <p id="notice"><%= notice %></p>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <%= render "event_attendees" %>
+      <%= render "event_details" %>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>Theme:</strong>
-  <%= @event.theme %>
-</p>
 
-<p>
-  <strong>Venue:</strong>
-  <%= @event.venue %>
-</p>
 
-<p>
-  <strong>Details:</strong>
-  <%= @event.details %>
-</p>
 
-<p>
-  <strong>Event start date:</strong>
-  <%= @event.event_start_date %>
-</p>
-
-<p>
-  <strong>Event end date:</strong>
-  <%= @event.event_end_date %>
-</p>
-
-<p>
-  <strong>Event start time:</strong>
-  <%= @event.event_start_time %>
-</p>
-
-<p>
-  <strong>Event end time:</strong>
-  <%= @event.event_end_time %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

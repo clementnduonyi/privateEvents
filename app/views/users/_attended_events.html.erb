@@ -1,0 +1,15 @@
+<div class="column is-two-quarter">
+    <%= "You have attended " + (@user.attended_events.count).to_s + " event(s)" %>
+    <nav class="panel">
+        <p class="panel-heading">Attended events</p>
+    
+        <% if @user.attended_events.empty? %>
+            <p class="panel-block"><i>You have not attended any event yet!</i></p>
+        <% else %>
+            <% @user.attended_events.each do |event| %>
+                <p class="panel-block"><%= link_to event.theme, event_path(event) %></p>
+            <% end %>
+        <% end %>
+
+    </nav>
+</div>

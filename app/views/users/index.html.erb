@@ -1,0 +1,27 @@
+<section class="section">
+    <div class=container>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="box">
+                    <h3 class="title is-5 has-text-centered">Possible Invitees</h3>
+
+                    <div class="columns is-centered">
+                        <table class="table is-half is-hoverable has-text-centered">
+                            <tbody>
+                                <th class="has-text-centered">Invitee</th>
+                                <th class="has-text-centered">Send Invitation</th>
+                                <th class="has-text-centered">Invite status</th>
+                                <% event_owner = Event.find(params[:event_id]).creator %>
+                                <% @users.reject { |attendee| attendee == event_owner }.each do |attendee| %>
+                                    <% attendance = Attendance.find_by(event_id: params[:event_id], attendee_id: attendee.id) %>
+                                    <tr>
+                                        <td>
+                                            <%= attendee.name %>
+                                        </td>
+                                    </tr>
+                                <% end %>
+                </div>      </tbody>
+            </div>      </table>
+        </div>
+    </div>
+</section>            
