@@ -23,10 +23,14 @@ class AttendancesController < ApplicationController
         flash[:notice] = "The invitation is cancelled!"
     else
         attendance.invite_sent!
-        flash[:notice] = "You have indicated to attend #{@event.theme} event!"
+        flash[:notice] = "You have earlier indicated to attend #{event.theme} what has changed?"
     end
 
-    redirect_to users_path(event_id: event.id, id: attendance.id)
+    if current_user == event.creator
+      redirect_to users_path(event_id: event.id, id: attendance.id)
+    else
+      redirect_to event_path(event)
+    end
   end
 
   def update
@@ -34,7 +38,7 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.find_by(event_id: params[:event_id], attendee: current_user.id)
     if @attendance && @attendance.invite_sent?
       @attendance.attending!
-      flash[:notice] = "Thank you for signing up for the '#{@event.theme}'!"
+      flash[:notice] = "Thank you for signing up for the #{@event.theme}"
     else
       flash[:alert] = 'Your name is not on the invitation list'
     end
