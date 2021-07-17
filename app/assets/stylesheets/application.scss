@@ -16,12 +16,61 @@
 
  @import 'bulma';
 
+ 
  .navbar{
     padding: 1rem;
  }
 
  .content{
      font-size: 1.5rem;
+ }
+
+.banner-text{
+    position: absolute;
+    top: 18%;
+    left: 20%;
+    width: 100%;
+    font-family: "Inter";
+    
+    
+}
+
+#section{
+    position: absolute;
+    top: 66%;
+}
+
+ #column{
+     display: flex;
+     flex-wrap: wrap;
+ }
+ .card{
+    width: 25%;
+    margin: 2rem;
+ }
+
+ .card-header-title{
+     color: rgb(5, 5, 110);
+     font-family: 'Inter';
+    font: optional;
+
+
+ }
+
+ .theme{
+    font-family: 'Inter';
+    font: optional;
+    font-size: 25px;
+   color: black;
+
+    
+ }
+
+
+ .event-info{
+     font-family: 'Inter';
+     font: optional;
+     font-size: 12px;
  }
 
  
