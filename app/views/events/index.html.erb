@@ -1,7 +1,10 @@
-<p id="notice"><%= notice %></p>
-<section>
-   <%= image_tag('img/lbg.jpg', class: "hero is-medium", width: "100%")%>
-  <div class="banner-text">
+<div id="notice"><%= notice %></div>
+<div class="media is-fullwidth">
+  <figure class="image is-4by4" id="image">
+   <%= image_tag('img/hero-bg.jpg')%>
+  </figure>
+</div>
+<div class="banner-text">
     <h1 class="title is-5" style="font-size:5rem; color:white">
     Events
     </h1>
@@ -11,8 +14,6 @@
       No spamming  <br />in any form. <%= link_to "Sign up today", new_user_registration_path, class: "button is-info is-outlined" %> 
     </p>
   </div>
-</section>
-
 <div class="section" id="section">
   <div class="container">
     <div class="columns">
@@ -21,7 +22,7 @@
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <%= image_tag('img/coding.jpg')%>
+                <%= image_tag('img/events.jpg')%>
               </figure>
             </div>
             <div class="card-header">
@@ -31,12 +32,11 @@
             </div>
             <div class="card-content">
               <div class="content has-text-centered">
-                
                 <span class="theme"><%= link_to event.theme, event_path(event) %></span><br />
-                  <span class="event-info"><%= "Date: " + event.event_start_date.strftime('%a, %b %-d, %Y') %></span> -
-                  <span class="event-info"><%= event.event_end_date.strftime('%a, %b %-d, %Y')%></span><br />
-                  <span class="event-info"><%= "Time: " + event.event_start_time.strftime("%I:%M %P") %></span> -
-                  <span class="event-info"><%= event.event_end_time.strftime("%I:%M %P")%></span>
+                <span class="event-info"><%= "Date: " + event.event_start_date.strftime('%a, %b %-d, %Y') %></span> -
+                <span class="event-info"><%= event.event_end_date.strftime('%a, %b %-d, %Y') %></span><br /> 
+                <span class="event-info"><%= "Time: " + event.event_start_time.strftime("%I:%M %P") %></span> -
+                <span class="event-info"><%= event.event_end_time.strftime("%I:%M %P") %></span>
               </div>
             </div>
           </div>

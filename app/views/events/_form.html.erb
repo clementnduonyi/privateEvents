@@ -1,52 +1,55 @@
-<%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-        <% event.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+  <div class="field">
+    <div class="control">
+      <%= f.input :theme, autofocus: true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
     </div>
-  <% end %>
+  </div>
+
 
   <div class="field">
-    <%= form.label :theme %>
-    <%= form.text_field :theme %>
+    <div class="control">
+      <%= f.input :venue, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :venue %>
-    <%= form.text_field :venue %>
+    <div class="control">
+      <%= f.input :details, input_html: {class: "textarea"}, wrapper: false, label_html: {class: "label"} %>
+    </div>
+  </div>
+
+
+  <div class="field">
+    <div class="control" id="fcontrol">
+      <span>
+        <%= f.label :'Start date' %><br />
+        <%= f.date_field :event_start_date, input_html: {class: "input"}, wrapper: false, label_html: {class: 'label'} %>
+      </span>
+      <span>
+        <%= f.label :'End date' %><br />
+        <%= f.date_field :event_end_date, input_html: {class: "inpu"}, wrapper: false, label_html: {class: 'label'} %>
+      </span>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :details %>
-    <%= form.text_area :details %>
+    <div class="control" id="fcontrol">
+      <span>
+        <%= f.label :'Start time' %><br />
+        <%= f.time_field :event_start_time, input_html: {class: "input"} %>
+      </span>
+      <span class="time-field">
+        <%= f.label :'End time' %><br />
+        <%= f.time_field :event_end_time, input_html: {class: "input"} %>
+      </span>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :event_start_date %>
-    <%= form.date_select :event_start_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_end_date %>
-    <%= form.date_select :event_end_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_start_time %>
-    <%= form.time_select :event_start_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_end_time %>
-    <%= form.time_select :event_end_time %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="control">
+      <%= f.button :submit, class: "button is-success is-outlined" %>
+    </div>
   </div>
 <% end %>
