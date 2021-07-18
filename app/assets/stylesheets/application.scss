@@ -16,19 +16,16 @@
 
  @import 'bulma';
 
- 
+
  .navbar{
     padding: 1rem;
- }
-
- #notice{
-     margin-bottom: 2rem;
  }
 
  .content{
      font-size: 1.5rem;
  }
 
+ /*Home page*/
 
 .banner-text{
     position: absolute;
@@ -42,7 +39,7 @@
 
 #section{
     position: absolute;
-    top: 120%;
+    top: 100%;
 }
 
  #column{
@@ -50,12 +47,13 @@
      flex-wrap: wrap;
  }
  .card{
-    width: 25%;
+    width: 30%;
     margin: 2rem;
+   
  }
 
  .card-header-title{
-    color: rgb(5, 5, 110);
+    color: palevioletred;
     font-family: 'Inter';
     font: optional;
 
@@ -65,17 +63,31 @@
  .theme{
     font-family: 'Inter';
     font: optional;
-    font-size: 25px;
-   color: black;
+    font-size: 20px;
+    color: palevioletred;
+    
+   
 
     
+ }
+
+ .details{
+     font-family: "Inter";
+     font-size: 18px;
+     
+     
+ }
+
+ .card-content{
+    line-height: 20px;
+     text-decoration: none;
  }
 
 
  .event-info{
      font-family: 'Inter';
      font: optional;
-     font-size: 12px;
+     font-size: 15px;
  }
 
  /*new event form section*/
@@ -93,4 +105,16 @@
      margin-left: 4rem;
  }
 
+ /*User profile*/
+
+ .media-content li{
+     font-family: "Inter";
+     font-size: 15px;
+     line-height: 10px;
+     color: black;
+ }
+
+ /*footer section*/
+
+ 
  
