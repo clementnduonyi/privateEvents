@@ -55,15 +55,14 @@
  .card-header-title{
     color: palevioletred;
     font-family: 'Inter';
-    font: optional;
+    font-size: 12px;
 
 
  }
 
  .theme{
     font-family: 'Inter';
-    font: optional;
-    font-size: 20px;
+    font-size: 18px;
     
     
    
@@ -88,6 +87,21 @@
      font-family: 'Inter';
      font: optional;
      font-size: 12px;
+ }
+
+ .fa-clock-o{
+     margin-top: 1rem;
+ }
+
+ .fa-map-marker{
+     margin-right: 0.5rem;
+     
+     color: rgb(10, 85, 10);
+ }
+
+ .card-header-title i{
+     font-size: 20px;
+     
  }
 
  /*new event form section*/

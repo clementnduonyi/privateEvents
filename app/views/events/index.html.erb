@@ -27,16 +27,19 @@
             </div>
             <div class="card-header">
               <p class="card-header-title has-text-centered">
-                <%= '@' + event.venue %>
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span><%= + event.venue %></span>
               </p>
             </div>
             <div class="card-content">
               <div class="content">
                 <i><p class="theme"><%= event.theme%></p></i><br />
                 <p class="details"><%= link_to event.details.truncate_words(20), event_path(event) %></p><br />
-                <span class="event-info"><%= "Date: " + event.event_start_date.strftime('%a. %b %-d, %Y') %></span> -
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <span class="event-info"><%= event.event_start_date.strftime('%a. %b %-d, %Y') %></span> -
                 <span class="event-info"><%= event.event_end_date.strftime('%a. %b %-d, %Y') %></span><br /> 
-                <span class="event-info"><%= "Time: " + event.event_start_time.strftime("%I:%M %P") %></span> -
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <span class="event-info"><%= event.event_start_time.strftime("%I:%M %P") %></span> -
                 <span class="event-info"><%= event.event_end_time.strftime("%I:%M %P") %></span>
               </div>
             </div>
