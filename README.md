@@ -8,7 +8,7 @@ In these projects, the purpose is to really get to dive into ActiveRecord’s as
 
 It is build in similitude to a private Eventbrite which allows users to create events and then manage user signups. Users can create events and send invitations. Events take place at a specific date and at a location.
 
-A user can create events. A user can attend many events. An event can be attended by many users. To achieve this, model many-to-many relationships. Creating relationships between two table with a "through" table.
+A user can create events. A user can attend many events. An event can be attended by many users. To achieve this, I model many-to-many relationships. Creating relationships between two tables via a third "through" table.
 
 [Sign up here to see it in action](https://still-castle-21021.herokuapp.com/events)
 
