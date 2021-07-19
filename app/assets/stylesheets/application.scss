@@ -129,6 +129,18 @@
  }
 
  /*footer section*/
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 350%;
+    width: 100%;
+    margin-top: 10%;
+}
 
+.footer-content{
+    text-align: center;
+}
  
  
